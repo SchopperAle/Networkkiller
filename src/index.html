@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Traffic Generator / Broadcaststorm</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1 id="title">JS 💖 Networkkiller!</h1>
+    <div class="space"></div>
+    <div id="address">
+      <label for="ip">IP: </label>
+      <input type="text" name="ip" id="ip" value="172.17.112.255"><br>
+      <label for="slow">Add Delay? </label>
+      <input type="checkbox" name="slow" id="slow"><br>
+      <div id="delayC">
+        <label for="delay">Delay (in ms):</label>
+        <input type="number" name="delay" id="delay" value="1">
+      </div>
+    </div>
+    <div id="buttons">
+      <button id="kill" onclick="danger.startBroadcast(document.getElementById('ip').value, document.getElementById('slow').checked? document.getElementById('delay').value: 0)">Kill IP</button>
+      <button id="killAll" onclick="danger.killAll()">Stop Attack</button>
+    </div>
+
+    <script>
+      checkSlow();
+
+      document.getElementById("slow").addEventListener("change", () => checkSlow());
+
+      function checkSlow(){
+        if(document.getElementById("slow").checked){
+          document.getElementById("delayC").style.display = "block"
+        }else {
+          document.getElementById("delayC").style.display = "none"
+        }
+      }
+    </script>
+  </body>
+</html>
